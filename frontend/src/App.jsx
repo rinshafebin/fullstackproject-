@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter, Routes, Route, Navigation, Navigate } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import Login from './pages/Login'
 import Home from './pages/Home'
 import Register from './pages/Register'
@@ -22,10 +22,11 @@ const App = () => {
     <div>
       <BrowserRouter>
         <Routes>
-          <route path='/' element={<ProtectedRoute> <Home /></ProtectedRoute>} />
-          <route path='/logim' element={<Login />} />
-          <route path='/register' element={<Register />} />
-          <route path='*' element={<NotFound />} />
+          <Route path='/' element={<ProtectedRoute> <Home /></ProtectedRoute>} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/logout' element={<Logout />} />
+          <Route path='/register' element={<Register />} />
+          <Route path='*' element={<NotFound />} />
         </Routes>
       </BrowserRouter>
 

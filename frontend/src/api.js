@@ -1,6 +1,5 @@
 import axios from 'axios'
 import { ACCESS_TOKEN } from './constants'
-import { configs } from 'eslint-plugin-react-refresh';
 
 const api =axios.create({
     baseURL :import.meta.env.VITE_API_URL

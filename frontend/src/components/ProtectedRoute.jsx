@@ -1,4 +1,3 @@
-import React, { useState } from 'react'
 import { Navigate } from 'react-router-dom'
 import { jwtDecode } from 'jwt-decode'
 import api from '../api'
@@ -12,7 +11,7 @@ function ProtectedRoute({ children }) {
     
     useEffect(()=>{
         auth().catch(()=>setIsAuthorized(false))
-    })
+    },[])
 
     ///refreshing the token//
 
@@ -32,7 +31,7 @@ function ProtectedRoute({ children }) {
             }
 
         } catch {
-            console.log(error)
+            console.log("Refresh token failed:",error)
             setIsAuthorized(false)
         }
 
@@ -53,7 +52,7 @@ function ProtectedRoute({ children }) {
         if (tokenExpiration < now) {
             await refreshToken()
         } else {
-            setIsAuthorized(True)
+            setIsAuthorized(true)
         }
     }
 
